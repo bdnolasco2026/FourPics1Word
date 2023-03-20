@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordscapes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+
+            body{
+                text-align: center;
+                padding: 3%;
+                background-image: url("https://img.freepik.com/free-photo/brick-wall-background_53876-88654.jpg?");
+                color: #e7e7e7;
+                font-family: monospace;
+                background-repeat: repeat-y;
+                background-size: cover;
+            }
+            table{
+                width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .table1 {
+                opacity: 0.9;
+                background-color: #929292;
+            }
+            .table2 {
+                background-color: #41474b;
+            }
+            td {
+                padding: 10px;
+                color:white;
+            }
+            #big, #big2 {
+                width: 90%;
+            }
+  </style>
+  </head>
+  <body>
+    <h2> 4 PICS 1 WORD </h2>
+    <table id = "Question1Table">
+        <tr class="table1" id="top">
+            <img src = https://heavy.com/wp-content/uploads/2014/06/umbrella1-300x297.jpg? height="350" width="350">
+            <td id="big"> <h2 id="input">&nbsp;</h2> </td>
+
+            <!-- CHECK -->
+            <td> <button class="btn btn-outline-success" onclick="check()">Check</button> </td>
+
+        <tr class="table2">
+            <td id="big2">
+                <button id="letterR" class="btn btn-secondary" onclick="enterChar(event); enterCharO(event)">R</button> 
+                <button id="letterU" class="btn btn-secondary" onclick="enterChar(event); enterCharA(event)">U</button> 
+                <button id="letter2" class="btn btn-secondary" onclick="enterChar(event); enterCharD(event)">L</button> 
+                <button id="letterT" class="btn btn-secondary" onclick="enterChar(event); enterCharT(event)">T</button>
+                <button id="letterE" class="btn btn-secondary" onclick="enterChar(event); enterCharE(event)">E</button> 
+                <button id="letterB" class="btn btn-secondary" onclick="enterChar(event); enterCharB(event)">B</button> 
+                <button id="letterA" class="btn btn-secondary" onclick="enterChar(event); enterCharS(event)">A</button> 
+                <button id="letterM" class="btn btn-secondary" onclick="enterChar(event); enterCharR(event)">M</button>
+                <button id="letterL" class="btn btn-secondary" onclick="enterChar(event); enterCharL(event)">L</button>
+                <button id="letterI" class="btn btn-secondary" onclick="enterChar(event); enterChar2(event)">I</button> 
+           
+            </td>
+            <!-- CLEAR -->
+           <td> <button class="btn btn-outline-danger" onclick="clearDisplay()">Backspace</button> </td>
+        </tr>
+    </table>
+<script>
+correct = "UMBRELLA"
+var lastletter = []
+
+function enterChar(event) {
+    document.getElementById("input").style.color = "#564096";
+    document.getElementById("input").innerHTML += event.target.innerHTML;
+}
+
+function enterCharO(event) {
+    document.getElementById("letterR").disabled = true;
+    lastletter.push("letterR");
+}
+
+function enterCharA(event) {
+    document.getElementById("letterU").disabled = true;
+    lastletter.push("letterU");
+}
+
+function enterCharD(event) {
+    document.getElementById("letter2").disabled = true;
+    lastletter.push("letter2");
+}
+
+function enterCharT(event) {
+    document.getElementById("letterT").disabled = true;
+    lastletter.push("letterT");
+}
+
+function enterCharE(event) {
+    document.getElementById("letterE").disabled = true;
+    lastletter.push("letterE");
+}
+
+function enterCharB(event) {
+    document.getElementById("letterB").disabled = true;
+    lastletter.push("letterB");
+}
+
+function enterCharS(event) {
+    document.getElementById("letterA").disabled = true;
+    lastletter.push("letterA");
+}
+
+function enterCharR(event) {
+    document.getElementById("letterM").disabled = true;
+    lastletter.push("letterM");
+}
+
+function enterCharL(event) {
+    document.getElementById("letterL").disabled = true;
+    lastletter.push("letterL");
+}
+
+function enterChar2(event) {
+    document.getElementById("letterI").disabled = true;
+    lastletter.push("letterI");
+}
+
+function clearDisplay() {
+    if(lastletter.length == 0){} else {
+        document.getElementById("input").innerHTML = document.getElementById("input").innerHTML.slice(0,-1);
+        document.getElementById(lastletter.pop()).disabled = false;
+    }
+}
+
+function check() {
+    for ( x=0; x<34; x++ ) {
+        if(document.getElementById("input").innerHTML === "&nbsp;" + correct){
+            window.location.replace("game5.html");
+        }
+    }
+    document.getElementById("input").innerHTML = "&nbsp;";
+    document.getElementById('letterR').disabled = false;
+    document.getElementById('letterU').disabled = false;
+    document.getElementById('letter2').disabled = false;
+    document.getElementById('letterT').disabled = false;
+    document.getElementById('letterE').disabled = false;
+    document.getElementById('letterB').disabled = false;
+    document.getElementById('letterA').disabled = false;
+    document.getElementById('letterM').disabled = false;
+    document.getElementById('letterL').disabled = false;
+    document.getElementById('letterI').disabled = false;
+    lastletter = []
+}
+</script>
+</body>
+
+</html>
